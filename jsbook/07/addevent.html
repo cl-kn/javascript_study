@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        function eventFunc(event) {
+            event = event || window.event;
+            alert("イベントタイプ" + event.type);
+            return true;
+        }
+
+        function addEventHdr() {
+            var e = document.getElementById("btn");
+            if (e == null) {
+                return;
+            }
+            if (window.addEventListener) {
+                e.addEventListener("click", eventFunc, false);
+            } else {
+                e.attachEvent("onclick", eventFunc);
+            }
+        }
+
+        function sendEventProc() {
+            var e = document.getElementById("btn");
+            if (e == null) {
+                return;
+            }
+            if (document.createEvent) {
+                var evt = document.createEvent("MouseEvents");
+                evt.initEvent("click", false, true);
+                e.dispatchEvent(evt);
+            } else {
+                var evt = document.createEventObject();
+                e.fireEvent("onclick", evt);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>
+        <button id="btn">ボタン</button>
+    </p>
+    <p>
+        <button onclick="addEventHdr()">イベントハンドラの追加</button>
+        <button onclick="sendEventProc()">イベントの送信</button>
+    </p>
+</body>
+
+</html>

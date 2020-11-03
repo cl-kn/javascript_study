@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>文字の大きさを変える</title>
+    <link rel="stylesheet" href="..//css/style.css">
+</head>
+
+<body id="inner">
+    <script>
+        function typeChange(n) {
+            var span = document.getElementById("mystyle");
+            if (n == 0) {
+                span.style.color = "blue";
+                span.style.fontSize = "x-large";
+            } else if (n == 1) {
+                span.style.color = "black";
+                span.style.fontSize = "";
+                span.style.fontWeight = "";
+                span.style.backgroundColor = "";
+                span.style.border = "";
+
+            } else if (n == 2) {
+                span.style.fontWeight = "bold";
+            } else if (n == 3) {
+                span.style.backgroundColor = "red"; //よく使う
+            } else if (n == 4) {
+                span.style.border = "double 3px";
+            }
+
+        }
+    </script>
+
+    <span id="mystyle">スタイルを切り替えます</span><br><br>
+    <input type="button" onclick="typeChange(0)" value="大きい字">
+    <input type="button" onclick="typeChange(1)" value="普通の字">
+    <input type="button" onclick="typeChange(2)" value="太字">
+    <input type="button" onclick="typeChange(3)" value="背景色">
+    <input type="button" onclick="typeChange(4)" value="外枠">
+</body>
+
+</html>

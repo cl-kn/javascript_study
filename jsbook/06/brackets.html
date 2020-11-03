@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>サンプルプログラム：特殊文字列の色付け
+    </title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        .mark {
+            color: red;
+        }
+    </style>
+    <script>
+        function markBrackets() {
+            // idがtextである要素を探し、その中の文字列をｓに代入
+            var e = document.getElementById("text");
+            var s = e.innerHTML; // innerHTMLプロパティ：要素中のHTMLを取得
+
+            // 置換処理
+            var reg = new RegExp("「.+?」", "g");
+            //置換文字列の前後にspanタグで色付け
+            s = s.replace(reg, "<span class='mark'>$&</span>");
+
+            // $&   マッチした部分文字列
+            // $`   マッチした部分文字列の直前の文字列
+            // $'   マッチした部分文字列の直後の文字列
+            // $1, $2,...    ...にマッチした文字列
+            // $$   ＄記号
+
+            //置換した文字列で元の要素の中身を更新
+            e.innerHTML = s;
+        }
+    </script>
+
+</head>
+
+<body onload="markBrackets()">
+    <p id="text">
+        絵本のキャラクターである「しおり」は、本に挟む「栞」をイメージして作られました。<br />ほかにも文房具のキャラクターが提案されましたが、シンプルで邪魔にならないという理由で「しおり」に決定しました。
+    </p>
+</body>
+
+</html>

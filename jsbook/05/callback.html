@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="../js/callback.js"></script>
+    <script>
+        // コールバック関数
+        proc();
+
+        //通常関数
+        nomal_func(); //通常の関数です。
+
+        //無名関数
+        //変数 anonymous_funcに代入されている
+        anonymous_func(); //無名関数です。
+
+        name = "グローバルスコープ：ポチ";
+
+        //即時関数 関数名は省略可
+        (function() {
+            var name = "ポチ"; //関数スコープ
+            console.log("犬の名前：" + name);
+        })();
+
+        console.log(name);
+
+        /*
+        高層関数、無名関数の練習-----------------------------------------------
+        */
+        // A関数（コールバックとして実行される関数）
+        function hello1() {
+            console.log('通常の関数：ハロー');
+        }
+
+        //B関数（コールバックを実行する関数）
+        function execute1(callback) {
+            callback();
+        }
+
+        //hello関数を引数にexecute関数を実行
+        execute1(hello1);
+
+        // 上記コードでは、A関数をB関数の引数に渡せる
+
+        //-------------------------------------------------------------------
+        //関数をすべて変数に格納した場合
+        // A関数
+        const hello2 = function() {
+            console.log('変数に格納した関数：ハロー');
+        }
+
+        // B関数
+        const execute2 = function(callback) {
+            callback();
+        };
+        execute2(hello2);
+
+        //-------------------------------------------------------------------
+        //コールバック関数を使用して
+        // A関数⇒execute関数内部で引数として直接渡す為、不要になった
+        function execute3(callback) {
+            callback();
+        }
+
+        execute3(function() {
+            console.log('コールバック関数を使用：ハロー');
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

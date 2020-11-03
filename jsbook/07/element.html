@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        function check() {
+            for (i = 0; i < document.form1.length; i++) {
+
+                // 空欄のフォーム部品がある場合、
+                if (document.form1.elements[i].value == "") {
+                    alert("入力漏れがあります！！");
+                    //送信を中止
+                    return false;
+                }
+
+                // チェックボックスの可否は、input要素オブジェクトのcheckedプロパティで判定する
+                if (document.form1.elements[2].checked == false) {
+                    alert("入力漏れがあります！！");
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>マガジン申し込み</h1>
+    <p>以下の項目を入力して送信ボタンをクリックしてください。</p>
+    <!-- onsubmit：送信ボタンがクリックされたら、check()を呼び出し、戻り位置がtrueならsubmit、falseならsubmitしない -->
+    <form name="form1" onsubmit="return check()">
+        <p>名前：<input type="text" name="name"></p>
+        <p>住所：<input type="text" name="add" size="55"></p>
+        <p>購読する：<input type="checkbox" name="buy" value=1></p>
+        <input type="submit" value="送信">
+        <input type="reset" value="リセット">
+    </form>
+</body>
+
+</html>

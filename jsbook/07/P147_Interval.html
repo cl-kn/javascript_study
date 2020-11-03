@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        function proc() {
+            let nowTime = new Date();
+            document.getElementById("text").innerHTML += (nowTime.toTimeString() + "<br>");
+
+            if (nowTime.getTime() - beginTime > 10000) {
+                clearInterval(tid);
+            }
+        }
+
+        function onloadproc() {
+            beginTime = new Date();
+            tid = setInterval(proc, 1000);
+        }
+    </script>
+</head>
+
+<body onload="onloadproc()">
+    <p id="text"></p>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/ja.js"></script>
+    <title>2/27 日付フォーマット</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        // Dateオブジェクト
+        // console.log(now = new Date()); //現在時刻
+        // console.log(day = new Date(2017, 0, 1, 0, 0, 0));
+
+        //日本時間
+        function jpnDay() {
+            let now_jpn = moment();
+            let jpnDay = "日本時間：" + now_jpn.format("YYYY年MM月DD日(ddd) HH:mm:ss");
+            return jpnDay;
+        }
+
+        // 米国太平洋時間(PST)
+        var now_pst = now_jpn.add(-17, "hours"); // 日本時間から17時間を引く
+        console.log("米国太平洋時間 " + now_pst.format("YYYY年MM月DD日(ddd) HH:mm:ss"));
+    </script>
+    <form name="form">
+        <input type="button" name="day" value="現在時刻" onclick="myChoice(0)">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <form name="myform">
+        <label>名前<input type="text" name="mytext"></label><br /><br />
+        <label>公開する<input type="checkbox" name="mycheck"></label><br /><br />
+        <input type="submit" value="送信"><br />
+    </form>
+
+    <script>
+        // a = document.forms.length;
+        type1 = document.forms[0].elements[0].type;
+        type2 = document.forms[0].elements[1].type;
+        type3 = document.forms[0].elements[2].type;
+        // type3 = document.forms[0].elements[3].type;
+        // type3 = document.myform.mycheck.type;
+
+        document.write(type1, "<br />"); //
+        document.write(type2, "<br />"); //
+        document.write(type3, "<br />"); //
+        // document.write(type3, "<br />"); //
+    </script>
+</body>
+
+</html>

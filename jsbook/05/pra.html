@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>javaScript練習用05</title>
+    <link rel="stylesheet" href="">
+    <script src="../js/test.js"></script>
+    <script>
+        // numPrint(14);
+        // var num1 = 5;
+        // numPrint(num1);
+        applePen("apple");
+        applePen("dog");
+
+        let randomNum = Math.floor(Math.random() * 3);
+
+        switchNum(randomNum);
+
+        arrayNum1 = new Array('タマ', 'チョコ');
+        arrayNum(arrayNum1); // arrayNum1が参照渡しされ、ポチくん、チョコ となる
+        document.write(arrayNum1);
+
+        var aa = 5;
+        document.write("<br>元の変数の値：" + aa + "<br>" + "値渡し後の値：" + ataiWatashi(aa));
+
+        document.write("<br>元の変数の値：" + aa);
+
+        arrayNum2 = new Array(10, 20);
+        document.write("<br>元の変数の値：" + arrayNum2[0] + "," + arrayNum2[1] + "<br>" + "値渡し後の値 arrayNum2[0]：" +
+            sansyoWatashi(arrayNum2));
+
+        document.write("<br>" + arrayNum2[0] + ",");
+        document.write(arrayNum2[1]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!--
+javaScript 初期化していない変数＝＝undefinedがセット（プリミティブ値）
+※プリミティブ値 javaScriptでは、メソッドを持たないデータのこと、オブジェクトではない
+
+
+
+
+ -->

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>じゃんけんプログラム</title>
+    <link rel="stylesheet" href="">
+    <script src="../js/judgement.js"></script>
+    <script>
+        //確認ダイアログを表示し、「いいえ」のときボタン無効化
+        function init() {
+            if (!confirm("ＰＣとじゃんけんしますか？")) {
+                //getElementById() id属性を付けた要素を抽出
+                //disabledプロパティ フォーム無効化
+                document.getElementById("btnG").disabled = true;
+                document.getElementById("btnC").disabled = true;
+                document.getElementById("btnP").disabled = true;
+            }
+        }
+
+        //じゃんけんの結果を表示
+        function myChoice(jankenUser) {
+            var strLocal = myResult(jankenUser)
+            alert(strLocal);
+        }
+    </script>
+</head>
+
+<!-- ページ表示時に、onloadが実行される -->
+
+<body onload="init()">
+    <form name="form"></form>
+    <input type="button" id="btnG" onclick="myChoice(0)" value="グー">
+    <input type="button" id="btnC" onclick="myChoice(1)" value="チョキ">
+    <input type="button" id="btnP" onclick="myChoice(2)" value="パー">
+</body>
+
+</html>

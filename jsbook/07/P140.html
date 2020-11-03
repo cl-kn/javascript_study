@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="..//css/style.css">
+
+</head>
+
+<body>
+
+    <div id="t">
+        <span class="c1">javascript</span> の
+        <span class="c2">絵本</span>
+    </div>
+
+    <input id="f1" value="sample">
+
+    <script>
+        let e = document.getElementById("t");
+        let a = e.getElementsByTagName("span");
+
+        console.log(a[0].getAttribute("class")); //c1
+        console.log(a[1].getAttribute("class")); //c2
+
+        let e2 = document.getElementById("f1");
+        let s = e2.getAttribute("value");
+        s.setAttribute(s + "dog!!");
+    </script>
+</body>
+
+</html>

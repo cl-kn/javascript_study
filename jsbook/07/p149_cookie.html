@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        // クッキーからデータを取得
+        function getCookie(key) {
+            var data = "";
+            var cookies = document.cookie.split(";");
+
+            for (var i = 0; i < cookies.length; i++) {
+                if (cookies[i].substr(0, key.length) == key) {
+                    data = cookies[i].substr(key.length + 1, cookies[i].length);
+                    break;
+                }
+            }
+            return unescape(data);
+        }
+
+        // クッキーにデータを保存 (key:変数名, data:保存するデータ、days:保存日数)
+        function setCookie(key, data, days) {
+            var msecs = days * 24 * 60 * 60 * 1000;
+            var now = new Date();
+            var expires = new Date();
+            expires.setTime(now.getTime() + msecs);
+            document.cookie = key + "" + escape(data) + ";" + "expires = " + expires.toGMTString() + ";";
+        }
+
+        //クッキーのデータをクリア
+        function clearCookie(key) {
+            var expires = new Date();
+            expires.setTime(0);
+            document.cookie = key + "=a;" + "expires = " + expires.toGMTString() + ";";
+        }
+    </script>
+</head>
+
+<body>
+    <form name="f1">
+        <input type="text" name="InputData">
+        <input type="button" value="クッキーに保存" onclick="setCookie('Data1' , document.f1.InputData.value, 5)">
+        <input type="button" value="クッキーから取得" onclick="document.fi.InputData,value = getCookie('Data1')">
+        <input type="button" value="クッキーから取得" onclick="clearCookie('Data1')">
+    </form>
+</body>
+
+</html>

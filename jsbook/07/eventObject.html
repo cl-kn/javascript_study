@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        function myEvent(eve) {
+            alert("イベントのタイプは、" + window.event.type + "です。");
+        }
+    </script>
+
+    <input type="button" value="ボタン" onclick="myEvent(event)">
+</body>
+
+</html>
+
+<!--
+マウス
+左：０
+右：１？
+
+ -->

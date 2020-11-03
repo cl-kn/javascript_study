@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>要素の生成と追加</title>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <!-- createElement()メソッド -->
+    <div id="t">ああああああ</div>
+    <script>
+        let a = document.createElement("div");
+        a.setAttribute("id", "div1");
+        a.innerHTML = "NEW!!!";
+        // a.innerHTML = "リンク";
+        // <div id="div1">NEW!!!</div> と同じ
+
+        let e = document.getElementById("t");
+        e.appendChild(a);
+    </script>
+</body>
+
+</html>

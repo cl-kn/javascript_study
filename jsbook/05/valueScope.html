@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script src="../js/valueScope.js"></script>
+    <script>
+        "use strict";
+        var var_num1 = 22;
+
+        function varNum() {
+            var var_num1 = 100;
+            console.log("{}の内側の変数（var）：" + var_num1 + "<br>"); // 100
+        }
+        varNum();
+        console.log("{}の外側の変数（var）：" + var_num1 + "<br>"); // 22
+
+
+        let a = 1;
+        let x = 5;
+
+        if (a == 1) {
+            let x = 4; //ブロックスコープ変数
+            console.log("{}の内側の変数（let）：" + x + "<br>"); // 4
+        }
+        console.log("{}の外側の変数（let）：" + x + "<br>"); // 5
+
+        // str1 = "ポチ";
+        let str2 = "strictモード：ポチ";
+        // console.log(str); //Uncaught ReferenceError
+        console.log(str2);
+
+        //javaScriptの巻き上げ
+        var_makiage();
+        let_makiage();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!--
+varとletの特質、使い分け
+var
+・関数でのスコープ
+・スコープが広い
+・if () {}の中を通り抜ける
+
+let
+・ブロックスコープ
+・スコープが狭い
+
+javaScript の読み込み、変数の扱いについて
+
+
+
+ -->

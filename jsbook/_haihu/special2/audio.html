@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script>
+
+//メディアオブジェクト
+let melody;
+
+//初期化
+function init(){
+    melody = document.getElementById("melody");
+    //ループ再生を指定 ▼
+    melody.loop = true;
+}
+
+function selectMusic(music){
+    melody.pause();
+    melody.src = music;
+    document.getElementById("speedrange").value=50;
+    document.getElementById("speed").innerText=1;
+}
+
+function pSpeed(){
+    melody.playbackRate = 2.0;
+}
+
+function write_console(){
+    console.log("音楽、動画の長さ",melody.duration);
+    console.log("現在の位置",melody.currentTime);
+}
+
+function changeSpeed(a){
+    melody.playbackRate = a/50;
+    document.getElementById("speed").innerText=melody.playbackRate;
+    console.log(a);
+}
+
+</script>
+
+</head>
+<body onload="init()">
+    <h1>音楽を鳴らす</h1>
+    <h2>プレイヤー</h2>
+    <audio id="melody" src="sample1.mp3" controls muted></audio>
+    <p>選曲<br>
+        <select name="blood" onChange="selectMusic(this.value)">
+        <option value="sample1.mp3">マリオ</option>
+        <option value="sample2.mp3">ドクターマリオ</option>
+        </select></p>
+    
+    <h2>2倍速にする</h2>
+    <button type="button" onclick="pSpeed()">2倍速</button>
+
+    <h2>速度を変更する</h2>
+    <input type="range" id="speedrange" name="range" value="50" onChange="changeSpeed(this.value)" list="tickmarks"><span id="speed">１</span>倍速
+    <datalist id="tickmarks">
+        <option value="0">
+        <option value="10">
+        <option value="20">
+        <option value="30">
+        <option value="40">
+        <option value="50">
+        <option value="60">
+        <option value="70">
+        <option value="80">
+        <option value="90">
+        <option value="100">
+      </datalist>
+</body>
+</html>

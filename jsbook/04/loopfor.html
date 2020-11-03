@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>九九</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        for (j = 1; j <= 9; j++) {
+            document.write(`[${j}の段]<br>`);
+            for (i = 1; i <= 9; i++) {
+                document.write(j * i, "<br>");
+            }
+        }
+
+        for (i = 1; i <= 3; i++) {
+            document.write(`こんにちは！：${i}回目<br>`);
+        }
+    </script>
+</body>
+
+</html>

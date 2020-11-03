@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>無名関数</title>
+    <link rel="stylesheet" href="">
+    <script>
+        //通常の関数
+        function func() {
+            return "通常：ポチ";
+        }
+
+        //無名関数
+        let mumei = function() {
+            return "無名：ポチ";
+        };
+
+        let mumei2 = () => {
+            return "ラムダ：ポチ";
+        }
+
+        console.log(func());
+        console.log(mumei());
+        console.log(mumei2());
+    </script>
+</head>
+
+<body>
+
+
+
+
+
+</body>
+
+</html>

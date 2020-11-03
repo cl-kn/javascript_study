@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <script>
+        str = "犬猫猿";
+        len = str.length;
+        c = str.charAt(0);
+        day = "2020/02/27";
+        getDay = day.split("/");
+
+        console.log(str);
+        console.log(len);
+        console.log(c);
+        console.log(getDay);
+
+        //split();
+
+        let url = location.href;
+        let url1 = url.split("?");
+        let url2 = url1[1];
+
+        console.log(url2);
+
+        //indexOf();
+        momo = "昔々、桃太郎が存在しました。";
+        momoNum = momo.indexOf("昔", 1);
+        console.log(momoNum);
+    </script>
+</body>
+
+</html>
+
+<!--
+2/27 技
+a = location.href でURLを表示し、
+array = a.split("?"); で分割してやると
+URL?data=100
+URLがarray[0]、data=100がarray[1]で分割され、便利！
+
+以降も「split("&")」、「split("=")」等で区切ってデータをゲットできる！！
+
+
+ -->

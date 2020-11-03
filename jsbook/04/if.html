@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <label>天気</label><input type="text" id="weather"><br>
+    <label>降水確率</label><input type="number" id="kousui"><br>
+    <button onClick="kasa()">傘！！</button>
+    <script>
+        function kasa() {
+            let weather = document.getElementById("weather").value;
+            let kousui = document.getElementById("kousui").value;
+
+            if (weather == '雨' && kousui >= 50) {
+                document.write(`天気：${weather}：長傘を所持<br>`);
+
+                // if (kousui => 50) {
+                //     document.write(`天気：${weather}：長傘を所持<br>`);
+                // } else {
+                //     document.write(`天気：${weather}：折り畳み傘を所持<br>`);
+                // }
+            } else if (weather == '雨' && kousui <= 50) {
+                document.write(`天気：${weather}：折り畳み傘を所持<br>`);
+            } else if (weather == '晴れ') {
+                document.write(`天気：${weather}：手ぶら<br>`);
+            } else {
+                document.write(`天気：${weather}：？<br>`);
+            }
+        }
+
+        // let dog = 'ポチ';
+        // if (dog == 'ポチ') {
+        //     document.write('ポチくんです。<br>');
+        // } else {
+        //     document.write('ポチくんではありません。<br>');
+        // }
+
+        // let money = 100;
+        // if (money >= 100) {
+        //     document.write('100円もってます。<br>');
+        // } else {
+        //     document.write('100円もってません。<br>');
+        // }
+
+        // let num1 = 10;
+        // while (num1 > 5) {
+        //     document.write(num1 + '<br>');
+        //     num1--;
+        // }
+        // let num2 = 10;
+        // if (num2 % 2 == 0) {
+        //     document.write(`[${num2}]：偶数<br><br>`);
+        // } else {
+        //     document.write(`[${num2}]：奇数<br><br>`);
+        // }
+    </script>
+</body>
+
+</html>
