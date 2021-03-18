@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Script-Type" content="text/javascript">
     <title>じゃんけんプログラム</title>
-    <!-- <link rel="stylesheet" href="..//css/style.css"> -->
+    <link rel="stylesheet" href="..//css/jan.css">
     <script src="../js/judgement2.js"></script>
     <script>
         //じゃんけんの結果表示
@@ -19,19 +19,21 @@
 </head>
 
 <body id="inner">
-    <form name="form">
-        <input type="button" name="g" value="グー" onclick="myChoice(0)">
-        <input type="button" name="c" value="チョキ" onclick="myChoice(1)">
-        <input type="button" name="p" value="パー" onclick="myChoice(2)">
+    <div class="wrap">
+        <form name="form">
+            <input type="button" name="g" value="グー" onclick="myChoice(0)">
+            <input type="button" name="c" value="チョキ" onclick="myChoice(1)">
+            <input type="button" name="p" value="パー" onclick="myChoice(2)">
 
-        <!-- 準備しておいた画像を非表示 -->
-        <img id="win" type="hidden" src="C:/xampp/htdocs/jsbook/img/pose_win_girl.png" style="display:none">
-        <img id="lose" type="hidden" src="C:/xampp/htdocs/jsbook/img/pose_lose_boy.png" style="display:none">
-        <img id="aiko" type="hidden" src="C:/xampp/htdocs/jsbook/img/music_tympani_fortissimo_fffff.png" style="display:none">
-        <br><br>
-        <textarea name="area">
+            <!-- 準備しておいた画像を非表示 -->
+            <img id="win" type="hidden" src="..//img/pose_win_girl.png" style="display:none">
+            <img id="lose" type="hidden" src="..//img/pose_lose_boy.png" style="display:none">
+            <img id="aiko" type="hidden" src="..//img/figure_aisatsu_akusyu_kyousyu.png" style="display:none">
+            <br><br>
+            <textarea name="area">
         </textarea>
-    </form>
+        </form>
+    </div>
 </body>
 
 </html>
