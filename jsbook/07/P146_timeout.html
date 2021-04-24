@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        function proc() {
+            // myWin.close();
+            // clearTimeout(tid);
+
+            alert("Hello");
+            // clearTimeout(tid);
+
+        }
+
+        function onloadproc() {
+            tid = setTimeout(proc, 3000);
+            // myWin = window.open("http://google.com", "new");
+        }
+    </script>
+</head>
+
+<body onload="onloadproc()">
+
+</body>
+
+</html>

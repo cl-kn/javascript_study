@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+
+let ctx;
+let img;
+
+init();
+
+function init(){
+    img = new Image();
+    img.src = "vgt.png";
+}
+
+function start(){
+	let canvas = document.getElementById ('canvas');
+    ctx = canvas.getContext ('2d');   // キャンバスからコンテキストを取得
+    ctx.drawImage (img ,0, 0);
+    ctx.fillStyle = 'rgb(255,255,255)'; //塗りつぶしの色
+    ctx.fillRect (55, 7, 32, 160);
+ 
+}
+
+function draw_txt() {
+    clear_txt();
+    let txt = document.getElementById("txt").value;
+    let txt_arry = txt.split('');
+    ctx.fillStyle = 'rgb(0,0,0)'; //塗りつぶしの色
+    if(txt_arry.length === 1){
+        ctx.font = "bold 32px 'HG創英角ｺﾞｼｯｸUB'";
+        ctx.fillText(txt_arry[0] , 55, 90 , 110); 
+    }else if(txt_arry.length === 2){
+        ctx.font = "bold 32px 'HG創英角ｺﾞｼｯｸUB'";
+        for(let i=0 ;i<2;i++){
+            ctx.fillText(txt_arry[i] , 55, 45+i*32 , 110); 
+        }
+    }else if(txt_arry.length > 2){
+        ctx.font = "bold 32px 'HG創英角ｺﾞｼｯｸUB'";
+        for(let i=0 ;i<5 && i <txt_arry.length;i++){
+            ctx.fillText(txt_arry[i] , 55, 34+i*32 , 110); 
+        }       
+    }
+
+}
+
+function clear_txt(){
+    ctx.fillStyle = 'rgb(255,255,255)'; //塗りつぶしの色
+    ctx.fillRect (55, 7, 32, 160);
+}
+
+function k_enter(){
+    if(event.keyCode===13){
+        draw_txt();
+    }
+}
+
+</script>
+</head>
+<body onload="start()">
+    <h1>超ジェネレータ</h1>
+    <div>
+        <canvas id="canvas" width=458 height=452></canvas>
+    </div>    
+    <div>
+        <input type="text" id="txt" onkeydown="k_enter()" value="超ベジ｜タ">
+        <button onclick="draw_txt()">発表</button>
+        <button onclick="clear_txt()">クリア</button>
+    </div>
+</body>
+</html>

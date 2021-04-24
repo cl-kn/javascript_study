@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+        let ctx;
+        let img;
+
+        //画像を使うときは、最初に読み込んでおかないといけないんだ。
+        init();
+
+
+        function init() {
+            img = new Image();
+            img.src = "reiwa.png";
+        }
+        //←ここまで最初に画像の読み込みをしておく部分
+
+        function start() {
+            //初期化init()が終わった後で、bodyのonloadからのcanvasの設定
+            let canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d'); // キャンバスからコンテキストを取得
+            ctx.drawImage(img, 0, 0); //画像を読み込む
+            //額縁をクリアしておく
+            ctx.fillStyle = 'rgb(255,255,255)'; //塗りつぶしの色
+            ctx.fillRect(230, 60, 110, 160);
+
+        }
+
+        function draw_txt() {
+            clear_txt(); //まず額縁をきれいにしておく
+
+            //テキストボックスから読み込んだ文字をばらしておく
+            let txt = document.getElementById("txt").value;
+
+            //ここからは整理すればもっときれいにできそう
+            ctx.fillStyle = 'rgb(0,0,0)'; //字の塗りつぶしの色
+            if (txt.length === 1) {
+                ctx.font = "bold 100px 'HG正楷書体-PRO'";
+                ctx.fillText(txt[0], 230, 180, 110);
+            } else if (txt.length === 2) {
+                ctx.font = "bold 80px 'HG正楷書体-PRO'";
+                for (let i = 0; i < 2; i++) {
+                    ctx.fillText(txt[i], 240, 130 + i * 80, 110);
+                }
+            } else if (txt.length > 2) {
+                ctx.font = "bold 55px 'HG正楷書体-PRO'";
+                for (let i = 0; i < 3; i++) {
+                    ctx.fillText(txt[i], 255, 110 + i * 55, 110);
+                }
+            }
+
+        }
+
+        function clear_txt() {
+            ctx.fillStyle = 'rgb(255,255,255)'; //塗りつぶしの色
+            ctx.fillRect(230, 60, 110, 170);
+        }
+
+        function k_enter() {
+
+            if (event.keyCode === 13) {
+                draw_txt();
+            }
+        }
+    </script>
+</head>
+
+<body onload="start()">
+    <h1>元号ジェネレータ</h1>
+    <div>
+        <canvas id="canvas" width=380 height=500></canvas>
+    </div>
+    <div>
+        <input type="text" id="txt" onkeydown="k_enter()">
+        <button onclick="draw_txt()">発表</button>
+        <button onclick="clear_txt()">クリア</button>
+    </div>
+</body>
+
+</html>

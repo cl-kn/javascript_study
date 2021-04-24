@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<!--
+    ▼jsファイルを読み込むときはこうする▼
+    <script type="text/javascript" src="ファイル名".js"></script>
+ -->
+
+ <title>いろいろテンプレート</title>
+<script>
+
+//全体で使う変数を宣言
+let g_data="初期値";
+
+//初期化
+function init(){
+    console.log("onloadでinit（初期化）")
+    console.log("g_data：",g_data);
+    g_data = "変更後の値";
+    console.log("g_data：",g_data);
+}
+
+function txt_change(data){
+    //わたってきたデータ↓
+    console.log("■テキストボックス入力内容変更");
+    console.log("txt_changeわたされたデータ：",data);
+    //全体でつかう変数↓
+    console.log("g_data：",g_data);
+}
+
+
+function btn_click(){
+    console.log("■ボタンクリック");
+    console.log("g_data：",g_data);
+}
+
+
+function select_Data(data){
+    //わたってきたデータ↓
+    console.log("■ドロップダウン選択");
+    console.log("select_Dataわたされたデータ：",data);
+    //全体でつかう変数↓
+    console.log("g_data：",g_data);
+}
+
+function range_move(data){
+    console.log("■つまみ動かす");
+    console.log("range_moveにわたされたデータ：",data);
+    console.log("g_data：",g_data);
+}
+
+//キー操作された時の処理
+function keydown_func() {
+    switch (event.keyCode) {
+        //1P
+        case 37://←キーが押された場合の番号
+            console.log("←キー");
+            break;//ここでブレークしないと下のコードが実行されてしまう
+        case 39://→キーが押された場合の番号
+            console.log("→キー");
+            break;
+        case 38://↑キーが押された場合の番号
+            console.log("↑キー");
+            break;
+        case 40://↓キーが押された場合の番号
+            console.log("↓キー");
+            break;
+        // default:
+        //     console.log("そのたキー");
+        //     break;
+    }
+}
+
+function cr_click(data1,data2){
+    console.log("■チェックボックス/ラジオボタンクリック");
+    console.log(data1);
+    console.log(data2);
+}
+</script>
+
+</head>
+<body onload="init()" onkeydown="keydown_func()">
+    <h1>いろいろテンプレート</h1>
+
+    <h2>ボタン</h2>
+    <button type="button" onclick="btn_click()">クリック！</button>
+
+
+    <h2>テキストボックス</h2>
+    <input type="text" onChange="txt_change(this.value)">
+
+    <p>セレクトボックス<br>
+        this.valueを渡すと、jsの関数に、入力したデータ(valueプロパティ)が渡せるよ！<br>
+        <select name="blood" onChange="select_Data(this.value)">
+        <option value="1">福岡</option>
+        <option value="2">東京</option>
+        <option value="3">大阪</option>
+        </select></p>
+    
+
+    <h2>つまみ</h2>
+    <input type="range" id="speedrange" name="range" min="0" max="100" step="10" value="50" list="tickmarks" onChange="range_move(this.value)">
+    <datalist id="tickmarks">
+        <option value="0">
+        <option value="10">
+        <option value="20">
+        <option value="30">
+        <option value="40">
+        <option value="50">
+        <option value="60">
+        <option value="70">
+        <option value="80">
+        <option value="90">
+        <option value="100">
+      </datalist>
+
+      <h2>チェックボックスとラジオボタン</h2>
+      labelタグのforプロパティに<br>
+      checkボックスやラジオボタンのidをセットするとラベル選択でチェックできる<br>
+      <input id="ch1" type="checkbox" value="いちご" onclick="cr_click(this.value,this.checked)"><label for="ch1">いちご</label><br />
+      <input id="ch2" type="checkbox" value="すいか" onclick="cr_click(this.value,this.checked)"><label for="ch2">すいか</label><br />
+      <input id="ch3" type="checkbox" value="レモン" ><label for="ch2">レモン</label><br />
+
+      <input id="r1" type="radio" name="grp1" value="たまねぎ" onclick="cr_click(this.value,this.checked)">たまねぎ
+      <input id="r2" type="radio" name="grp1" value="しいたけ" onclick="cr_click(this.value,this.checked)">しいたけ
+      <input id="r3" type="radio" name="grp1" value="はくさい"><label for="r3">はくさい</label>
+</body>
+</html>

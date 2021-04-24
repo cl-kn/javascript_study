@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>ＤＯＭの機能を利用</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+        #comment {
+            width: 300px;
+            height: 100px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+    <script>
+        function changeText() {
+            var e = document.getElementById("ehon");
+            if (e != null) {
+                e.innerHTML = "JavaScriptの絵本";
+            }
+        }
+
+        function changeColor() {
+            var e = document.getElementById("ehon");
+            if (e != null) {
+                e.style.color = "red";
+            }
+        }
+
+        function changeColor2() {
+            var e = document.getElementById("ehon");
+            if (e != null) {
+                e.style.color = "black";
+            }
+        }
+
+        function proc() {
+            var inp = document.getElementsByTagName("input");
+            var e = document.getElementById("num");
+            if (e != null) {
+                e.innerHTML = inp.length;
+            }
+        }
+    </script>
+</head>
+
+<body onload="proc()">
+    <form action="send.cgi" method="GET">
+        <span id="ehon">Javaの絵本</span>のご意見・ご感想をお聞かせください。
+        <p>
+            <div>お名前：<input name="userName"></div>
+            <div><textarea id="comment"></textarea></div>
+            <input type="submit" value="送信">
+        </p>
+    </form>
+    <div>
+        <button onclick="changeText()">書名の変更</button>
+        <button onclick="changeColor()">書名の色の変更</button> input要素の数：
+        <button onclick="changeColor2()">書名の色の変更：戻す</button> input要素の数：
+        <span id="num"> ? </span> 個<br>
+    </div>
+</body>
+
+</html>

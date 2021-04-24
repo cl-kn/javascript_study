@@ -1,0 +1,23 @@
+body {
+    border: dotted 2px #000000;
+    padding: 20px;
+    background-color: rgb(247, 247, 247);
+    color: #000000;
+    word-break: break-all;
+    text-align: center;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.inner {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.c1 {
+    color: crimson;
+}

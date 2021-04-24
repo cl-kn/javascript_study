@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+</head>
+
+<body>
+    <form>
+        <input id="disp" type="button" value="クリック">
+    </form>
+    <script>
+        function newclick() {
+            alert("ああああああああああああああ");
+            return true;
+        }
+
+        function newclick2() {
+            alert("ｑｑｑｑｑｑｑｑｑｑ");
+            return true;
+        }
+
+        let e = document.getElementById("disp");
+        // e.onclick = newclick;
+        // e.addEventListener("click", newclick1, false);
+        e.addEventListener("click", newclick2, false);
+    </script>
+</body>
+
+</html>

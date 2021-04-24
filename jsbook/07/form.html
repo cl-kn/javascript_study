@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <form name="myform">
+        <label>名前<input type="text" name="NAME"></label><br /><br />
+        <input type="submit" value="送信"><br />
+    </form>
+
+    <script>
+        a = document.forms.length;
+        b = document.forms[0].length;
+        bb = document.myform.length;
+
+        document.write(a, "<br />"); // 1 <form>が１個
+        document.write(b, "<br />"); // 2
+        document.write(bb, "<br />"); // 2
+    </script>
+</body>
+
+</html>

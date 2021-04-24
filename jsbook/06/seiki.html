@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>javaScript 正規表現</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        let str1 = "I Love Cat !!!!";
+        let reg = new RegExp("[a-z]{3}", "ig"); //フラグは ig とまとめられる
+        match = str1.match(reg);
+        console.log(match);
+
+        let str1_replace = "I Love Dog !!!!";
+        str1_reg = new RegExp("[a-z]{3}", "ig");
+        let str2 = str1.replace(str1_reg, str1_replace);
+        console.log(str2);
+    </script>
+</body>
+
+</html>

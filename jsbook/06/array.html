@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        let a = [1, 2, 3, 4, 5];
+        let b;
+        let c;
+        b = a;
+        console.log("a", a);
+        console.log("b", b);
+        // console.log("bに6をpush", b.push("犬"));
+        // console.log("b", b);
+        console.log(c = a.slice(0)); // 0:0以上全て 1:1以上全て
+        console.log(a);
+        // bに4をpush
+
+        //------------------0305 forEach文が主流------------------
+        let num1 = Array(2, 4, 6);
+        num1.forEach(function(x) {
+            console.log(x); // 2,4,6
+            console.log(x * 2); // 4,6,12
+        });
+
+        //上記コードの別記述
+        num1.forEach((x) => {
+            document.write("配列", x);
+        });
+
+        //filter
+        // 条件に合致した配列を再生成する
+        //もともとの配列 num2
+        let num2 = [1, 2, 3, 4, 5, 6, 7, 8];
+        //新しい配列 num3
+        let num3 = num2.filter(function(x) {
+            // 抜き出したい処理を記述
+            // console.log(x % 2 == 0);
+            return x % 2 == 0;
+        })
+        console.log("配列num2[1,2,3,4,5,6,7,8]から偶数を抽出（新しい配列を生成した）");
+        console.log(num3);
+    </script>
+</body>
+
+</html>
+
+<!--
+slice推奨（イベントを検知できるかできないか？）
+pop, shift を使わずに
+
+2/27 push と slice
+
+push , pop 破壊
+slice 非破壊
+
+※ a = b;として、bを非破壊で変更しても、aも変更される
+c = a.slice(0); では、cに変更を加えても変更されない
+
+
+ -->

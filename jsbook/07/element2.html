@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title>Elementオブジェクト（２）</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <form name="myform">
+        乗車駅を選択
+        <select name="myselect">
+            <option value="tokyo" selected>東京駅</option>
+            <option value="yotsuya">四谷駅</option>
+            <option value="ikebukuro">池袋駅</option>
+        </select>
+        <input type="submit" value="送信">
+        <script>
+            let a = document.myform.myselect.options[2].text;
+            document.write("<br/>３番目のテキスト選択項目：", a);
+        </script>
+    </form>
+</body>
+
+</html>

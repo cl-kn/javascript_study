@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <script>
+        //コールバック関数を受け取って実行する関数
+        function exec_callback(func) {
+            func();
+        }
+
+        //
+        function proc() {
+            var name = "ポチ";
+            exec_callback(function() {
+                alert("こんにちは！" + name + "くん");
+            });
+        }
+    </script>
+</head>
+
+<body onload="proc()">
+
+</body>
+
+</html>

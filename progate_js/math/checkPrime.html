@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script type="module">
+        import {CheckPrime} from '../js/checkPrime.js';
+        const check = new CheckPrime();
+
+        const timeStart = performance.now();
+        console.log(check.printPrime(100000));
+        const timeEnd = performance.now();
+
+        const time = (timeEnd - timeStart) / 1000;
+        console.log(Math.floor(time * 1000) / 1000)
+
+        </script>
+</body>
+
+</html>
